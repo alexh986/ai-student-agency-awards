@@ -29,7 +29,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 120px;
+            scroll-padding-top: 160px;
         }
 
         body {
@@ -129,61 +129,45 @@
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
         }
 
-        .nav-dropdown-wrapper {
-            max-width: 500px;
+        .nav-tabs {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.5rem;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 1rem 1.5rem;
         }
 
-        .nav-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .nav-select {
-            width: 100%;
-            padding: 0.875rem 1.25rem;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--navy);
-            background: var(--cream);
-            border: 2px solid rgba(201, 162, 39, 0.3);
+        .nav-tab {
+            padding: 0.75rem 0.5rem;
+            background: transparent;
+            border: 2px solid transparent;
             border-radius: 8px;
             cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23132744' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 1.25rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-align: center;
             transition: all 0.3s ease;
         }
 
-        .nav-select:hover {
-            border-color: var(--gold);
+        .nav-tab:hover {
+            color: var(--navy);
+            background: rgba(201, 162, 39, 0.1);
         }
 
-        .nav-select:focus {
-            outline: none;
+        .nav-tab.active {
+            color: var(--navy);
+            background: rgba(201, 162, 39, 0.15);
             border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
-        }
-
-        .nav-select option {
-            padding: 0.75rem;
-            font-weight: 500;
         }
 
         .main-content {
             max-width: 900px;
             margin: 0 auto;
             padding: 3rem 2rem 5rem;
-            scroll-margin-top: 120px;
+            scroll-margin-top: 160px;
         }
 
         .tab-panel {
@@ -367,22 +351,36 @@
             color: var(--gold);
         }
 
+        @media (max-width: 900px) {
+            .nav-tabs {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .header {
                 padding: 2rem 1.5rem 3rem;
             }
 
-            .nav-dropdown-wrapper {
+            .nav-tabs {
+                grid-template-columns: repeat(3, 1fr);
                 padding: 0.75rem 1rem;
+                gap: 0.35rem;
             }
 
-            .nav-select {
-                font-size: 0.9rem;
-                padding: 0.75rem 1rem;
+            .nav-tab {
+                font-size: 0.7rem;
+                padding: 0.6rem 0.25rem;
             }
 
             .main-content {
                 padding: 2rem 1.25rem 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-tabs {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -398,22 +396,19 @@
     </header>
 
     <nav class="nav-container">
-        <div class="nav-dropdown-wrapper">
-            <label class="nav-label" for="district-select">Select School System</label>
-            <select class="nav-select" id="district-select">
-                <option value="anaheim">Anaheim Union High School District</option>
-                <option value="cajon-valley">Cajon Valley Union School District</option>
-                <option value="capistrano">Capistrano Unified School District</option>
-                <option value="dream">DREAM Charter Schools</option>
-                <option value="el-segundo">El Segundo Unified School District</option>
-                <option value="irvine">Irvine Unified School District</option>
-                <option value="la-habra">La Habra City School District</option>
-                <option value="lynwood">Lynwood Unified School District</option>
-                <option value="oak-grove">Oak Grove School District 68</option>
-                <option value="dtech">Sequoia Union HSD (dTech High School)</option>
-                <option value="val-verde">Val Verde Unified School District</option>
-                <option value="wla">Washington Leadership Academy</option>
-            </select>
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="anaheim">Anaheim UHSD</button>
+            <button class="nav-tab" data-tab="cajon-valley">Cajon Valley USD</button>
+            <button class="nav-tab" data-tab="capistrano">Capistrano USD</button>
+            <button class="nav-tab" data-tab="dream">DREAM Charter</button>
+            <button class="nav-tab" data-tab="el-segundo">El Segundo USD</button>
+            <button class="nav-tab" data-tab="irvine">Irvine USD</button>
+            <button class="nav-tab" data-tab="la-habra">La Habra City SD</button>
+            <button class="nav-tab" data-tab="lynwood">Lynwood USD</button>
+            <button class="nav-tab" data-tab="oak-grove">Oak Grove SD 68</button>
+            <button class="nav-tab" data-tab="dtech">dTech High School</button>
+            <button class="nav-tab" data-tab="val-verde">Val Verde USD</button>
+            <button class="nav-tab" data-tab="wla">Washington Leadership</button>
         </div>
     </nav>
 
@@ -753,22 +748,27 @@
     </footer>
 
     <script>
-        const select = document.getElementById('district-select');
+        const tabs = document.querySelectorAll('.nav-tab');
         const panels = document.querySelectorAll('.tab-panel');
 
-        select.addEventListener('change', () => {
-            const targetId = select.value;
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetId = tab.dataset.tab;
 
-            panels.forEach(panel => {
-                panel.classList.remove('active');
-                if (panel.id === targetId) {
-                    panel.classList.add('active');
-                }
-            });
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
 
-            document.querySelector('.main-content').scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+                panels.forEach(panel => {
+                    panel.classList.remove('active');
+                    if (panel.id === targetId) {
+                        panel.classList.add('active');
+                    }
+                });
+
+                document.querySelector('.main-content').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             });
         });
     </script>
