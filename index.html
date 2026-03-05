@@ -1025,10 +1025,26 @@
 
         document.getElementById('exitPresent').addEventListener('click', exitPresentation);
 
-        // Exit presentation with Escape key
+        // Keyboard navigation in presentation mode
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && document.body.classList.contains('presenting')) {
                 exitPresentation();
+            }
+
+            // Arrow key navigation in presentation mode
+            if (document.body.classList.contains('presenting')) {
+                const tabsArray = Array.from(tabs);
+                const currentIndex = tabsArray.findIndex(tab => tab.classList.contains('active'));
+
+                if (e.key === 'ArrowRight') {
+                    const nextIndex = (currentIndex + 1) % tabsArray.length;
+                    tabsArray[nextIndex].click();
+                    window.scrollTo(0, 0);
+                } else if (e.key === 'ArrowLeft') {
+                    const prevIndex = (currentIndex - 1 + tabsArray.length) % tabsArray.length;
+                    tabsArray[prevIndex].click();
+                    window.scrollTo(0, 0);
+                }
             }
         });
     </script>
