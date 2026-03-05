@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Student Agency Awards 2026 | District Honorees</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight: #0a1628;
+            --navy: #132744;
+            --slate: #1e3a5f;
+            --gold: #c9a227;
+            --gold-light: #e8d48a;
+            --cream: #f8f6f1;
+            --warm-white: #fdfcfa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 120px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 1000;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--midnight) 0%, var(--navy) 50%, var(--slate) 100%);
+            padding: 3rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(201, 162, 39, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(201, 162, 39, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 600;
+            color: var(--warm-white);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            animation: fadeSlideDown 0.8s ease-out 0.1s both;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeSlideDown 0.8s ease-out 0.2s both;
+        }
+
+        .header-event {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 1rem;
+            animation: fadeSlideDown 0.8s ease-out 0.25s both;
+        }
+
+        .decorative-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 2rem auto 0;
+            animation: fadeSlideDown 0.8s ease-out 0.3s both;
+        }
+
+        .nav-container {
+            background: var(--warm-white);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-dropdown-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+        }
+
+        .nav-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .nav-select {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            background: var(--cream);
+            border: 2px solid rgba(201, 162, 39, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23132744' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-select:hover {
+            border-color: var(--gold);
+        }
+
+        .nav-select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+        }
+
+        .nav-select option {
+            padding: 0.75rem;
+            font-weight: 500;
+        }
+
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+            scroll-margin-top: 120px;
+        }
+
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .district-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .district-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .district-label::before,
+        .district-label::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.4;
+        }
+
+        .district-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .district-location {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .district-summary {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .highlights-section {
+            margin-top: 2.5rem;
+        }
+
+        .highlights-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .highlights-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .highlights-list {
+            list-style: none;
+        }
+
+        .highlights-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .highlights-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .download-section {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+            color: var(--warm-white);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(10, 22, 40, 0.2);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(10, 22, 40, 0.3);
+        }
+
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer {
+            background: var(--midnight);
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--warm-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1.5rem 3rem;
+            }
+
+            .nav-dropdown-wrapper {
+                padding: 0.75rem 1rem;
+            }
+
+            .nav-select {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .main-content {
+                padding: 2rem 1.25rem 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+    <h1>AI Student <span>Agency</span> Awards 2026</h1>
+            <p class="header-subtitle">Celebrating visionary school districts leading the way in responsible, human-centered AI integration</p>
+            <p class="header-event">Student and Community Voice AI Summit | March 20–21, 2026 | Anaheim, CA</p>
+            <div class="decorative-line"></div>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="nav-dropdown-wrapper">
+            <label class="nav-label" for="district-select">Select School System</label>
+            <select class="nav-select" id="district-select">
+                <option value="anaheim">Anaheim Union High School District</option>
+                <option value="cajon-valley">Cajon Valley Union School District</option>
+                <option value="capistrano">Capistrano Unified School District</option>
+                <option value="dream">DREAM Charter Schools</option>
+                <option value="el-segundo">El Segundo Unified School District</option>
+                <option value="irvine">Irvine Unified School District</option>
+                <option value="la-habra">La Habra City School District</option>
+                <option value="lynwood">Lynwood Unified School District</option>
+                <option value="oak-grove">Oak Grove School District 68</option>
+                <option value="dtech">Sequoia Union HSD (dTech High School)</option>
+                <option value="val-verde">Val Verde Unified School District</option>
+                <option value="wla">Washington Leadership Academy</option>
+            </select>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Anaheim Union HSD -->
+        <article class="tab-panel active" id="anaheim">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">Anaheim Union High School District</h2>
+                <p class="district-location">Anaheim, CA | ~26,000 students</p>
+                <p class="district-summary">AUHSD's guiding principle: technology is built with the community, not for them. The Student AI Framework, approved December 2025 and co-authored by student interns, centers 'Youth Voice & Purpose' across grades 7–12.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>Skrappy AI metacognitive coach: 151,000+ student reflections this year, averaging 6 per student.</li>
+                    <li>AI Workgroup: students serve as strategic co-designers — not focus group participants — of district technology decisions.</li>
+                    <li>Multilingual AI Town Halls in Spanish, Korean, and Vietnamese ensure equitable community engagement.</li>
+                    <li>CTE AI Innovation Pathways from junior high through specialized high school cybersecurity and engineering programs.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- Cajon Valley USD -->
+        <article class="tab-panel" id="cajon-valley">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">Cajon Valley Union School District</h2>
+                <p class="district-location">El Cajon, CA | ~17,000 students</p>
+                <p class="district-summary">Cajon Valley moves 'at the speed of trust' — a deliberate, stakeholder-led rollout that sought systematic input from unions, families, and students before advancing, earning consistent community praise for prioritizing people over speed.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>Family-student AI testing events: grades 2 through high school test tools alongside parents as equal co-designers.</li>
+                    <li>High school students design and deliver digital literacy lessons to middle school peers on AI ethics.</li>
+                    <li>AI ethics embedded directly into teacher lesson-planning tools at the point of design.</li>
+                    <li>District-wide staff privacy training day unified all employees — teachers to support staff — on data protection.</li>
+                </ul>
+            </div>
+
+            <div class="download-section">
+                <a href="CVUSD AI Strategy One-Pager (1).pdf" class="download-btn" download>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Full Overview
+                </a>
+            </div>
+        </article>
+
+        <!-- Capistrano USD -->
+        <article class="tab-panel" id="capistrano">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">Capistrano Unified School District</h2>
+                <p class="district-location">San Juan Capistrano, CA | ~40,000 students</p>
+                <p class="district-summary">Capistrano's AI Institute (launched 2024–25) serves 40,000 TK–12 students through a '10% Club' of early-adopting teachers who design replicable AI-integrated lessons — students use AI as a thinking partner, not a shortcut.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>Adult Transition students who couldn't read or write independently used AI to author, revise, and hear her own stories.</li>
+                    <li>High school ELA: AI-supported analysis of character perspective and bias in a To Kill a Mockingbird unit.</li>
+                    <li>AI Taskforce was a co-design body — students, parents, Board members — producing the CUSD AI Guidelines.</li>
+                    <li>AI-generated personalized social stories help students navigate emotions, supporting social-emotional learning at scale.</li>
+                </ul>
+            </div>
+
+            <div class="download-section">
+                <a href="Capistrano Unified School District AI Strategies to Foster Student Agency (1).pdf" class="download-btn" download>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Full Overview
+                </a>
+            </div>
+        </article>
+
+        <!-- DREAM Charter Schools -->
+        <article class="tab-panel" id="dream">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">DREAM Charter Schools</h2>
+                <p class="district-location">New York, NY | ~2,500 students</p>
+                <p class="district-summary">DREAM designed its own K–12 AI Literacy Standards — aligned to the school's equity mission — and embeds AI instruction in core subjects including ELA, World History, and Social Studies, rather than treating it as a standalone course.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>AI Literacy Accelerator partnered with Hendy Avenue and AI for Equity to position teachers as curriculum co-designers.</li>
+                    <li>January 2026 AI Innovation Index: DREAM ranked above the top quartile vs. peer districts.</li>
+                    <li>9th graders at DREAM Charter High scored +5.8 above the top quartile — strongest results in the network.</li>
+                    <li>Student AI Usage Policy frames AI as a learning resource, requires disclosure, and prohibits sharing personal data.</li>
+                </ul>
+            </div>
+
+            <div class="download-section">
+                <a href="DREAM's Experience and Strategy with Artificial Intelligence.pdf" class="download-btn" download>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Full Overview
+                </a>
+            </div>
+        </article>
+
+        <!-- El Segundo USD -->
+        <article class="tab-panel" id="el-segundo">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">El Segundo Unified School District</h2>
+                <p class="district-location">El Segundo, CA | ~3,500 students</p>
+                <p class="district-summary">ESUSD's core belief: AI is designed with students, not for them. The district built a community-centered ecosystem including an (AI)dvisory Team of students, parents, and staff, district-wide adoption of MagicSchool AI and Canva AI, and a formal Emerging Technologies policy co-shaped by families.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>Student-led AIM Symposium (grades 7–12): students plan, present, and run workshops for families and community.</li>
+                    <li>Student-run AI Clubs at both school sites — officers set agendas, lead prompt workshops, and mentor peers.</li>
+                    <li>PTA Real Deal Day: students teach parents about responsible AI use.</li>
+                    <li>Parent AI Education Community Committee directly shaped the district's academic honesty policy.</li>
+                </ul>
+            </div>
+
+            <div class="download-section">
+                <a href="AI-El Segundo Unified School District (2) (2).pdf" class="download-btn" download>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Full Overview
+                </a>
+            </div>
+        </article>
+
+        <!-- Irvine USD -->
+        <article class="tab-panel" id="irvine">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">Irvine Unified School District</h2>
+                <p class="district-location">Irvine, CA | Grades 4–12</p>
+                <p class="district-summary">IUSD launched AI Literacy modules for all grades 4–12 at the start of 2025–26, paired with equitable access to vetted tools: Gemini for high school, MagicSchool and Snorkl for younger grades — all privacy-compliant.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>40+ student focus group classroom visits to ground next steps in actual student needs and experiences.</li>
+                    <li>AI Pioneers Community of Practice: teacher think-tank identifying and spreading high-value AI use cases.</li>
+                    <li>Consistent month-over-month growth in staff and student AI tool usage since school year launch.</li>
+                    <li>AI Steering Committee includes Coastline ROP representatives for perspective beyond the district.</li>
+                </ul>
+            </div>
+
+            <div class="download-section">
+                <a href="Irvine - Shaping the Future with Students at the Center_ Irvine Unified's Human-Centered Approach to AI and Student Agency.pdf" class="download-btn" download>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Full Overview
+                </a>
+            </div>
+        </article>
+
+        <!-- La Habra City SD -->
+        <article class="tab-panel" id="la-habra">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">La Habra City School District</h2>
+                <p class="district-location">La Habra, CA | ~4,200 students</p>
+                <p class="district-summary">La Habra integrates AI literacy across TK–8 through hands-on experiences that position students as active trainers and evaluators of technology — embedded within a newly developed TK–8 Digital Literacy Progression.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>TK–6 students train AI models using Google's Teachable Machine, learning that AI reflects human input and bias.</li>
+                    <li>Grades 3–8 use Adobe Express and Canva as creative AI partners, iterating on prompts and reflecting on outputs.</li>
+                    <li>A struggling middle school reader used AI to brainstorm ideas — transforming into an invested, self-directed learner.</li>
+                    <li>AI+ Committee includes parents and community members, with student seats being added in 2026.</li>
+                </ul>
+            </div>
+
+            <div class="download-section">
+                <a href="LHCSD AI Strategy Summary.docx.pdf" class="download-btn" download>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Full Overview
+                </a>
+            </div>
+        </article>
+
+        <!-- Lynwood USD -->
+        <article class="tab-panel" id="lynwood">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">Lynwood Unified School District</h2>
+                <p class="district-location">Lynwood, CA | Grades 6–12</p>
+                <p class="district-summary">Lynwood's AI Collaborative (launched 2024–25) positions students as civic problem-solvers who choose real-world challenges and use AI as a thought partner to research, prototype, and reflect — with student choice at the center.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>Students and teachers co-design AI tools including PlayLab bots for tutoring and classroom discourse.</li>
+                    <li>By May 2025, the majority of participating teachers at Firebaugh High used AI tools weekly or more.</li>
+                    <li>Students present AI-designed solutions to families and community at district showcases.</li>
+                    <li>District AI Task Force established early guardrails; all new tools vetted by Technology & Innovation.</li>
+                </ul>
+            </div>
+
+            <div class="download-section">
+                <a href="Lynwood Unified School District_ Building AI Capacity Across Classrooms, Leadership, and Systems (1).pdf" class="download-btn" download>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Full Overview
+                </a>
+            </div>
+        </article>
+
+        <!-- Oak Grove SD 68 -->
+        <article class="tab-panel" id="oak-grove">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">Oak Grove School District 68</h2>
+                <p class="district-location">Green Oaks, IL | ~900 students</p>
+                <p class="district-summary">Oak Grove believes knowledge is power. Starting in May 2025, the district built an AI Guidebook with teachers and launched the Oak Grove AI Use Levels — a grades 3–8 framework that gives students and teachers shared vocabulary for responsible AI use.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>All K–8 students participated in the global Hour of AI initiative to close the AI opportunity gap.</li>
+                    <li>MagicSchool AI chatbot tutor in 7th-grade math — one student wrote: 'It helped me because I didn't know where to start.'</li>
+                    <li>Teachers model AI use in class, reinforcing that humans control the input and evaluate the output.</li>
+                    <li>AI Family Focus Group held in November 2025 to surface parent concerns and inform future learning opportunities.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- dTech (Sequoia Union) -->
+        <article class="tab-panel" id="dtech">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">Sequoia Union High School District (dTech)</h2>
+                <p class="district-location">Redwood City, CA | ~550–600 students</p>
+                <p class="district-summary">dTech treats AI as a shared learning journey using an Explore → Create → Learn framework. By centering student agency first, the school produced real-world innovation before ever writing a formal policy.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>Two student-built companies emerged from class: Classmate (classmate.app) and Mantle, accepted to Y Combinator.</li>
+                    <li>Students co-designed the school's AI Framework — drafting the first prototype and refining the final version.</li>
+                    <li>Students hosted the UK Secretary of State for Science & Technology in a Stanford roundtable on AI in education.</li>
+                    <li>AI Next Gen Club visits middle schools and partners with PlayLab, Stanford AI Tinkery, and Future State University.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- Val Verde USD -->
+        <article class="tab-panel" id="val-verde">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">Val Verde Unified School District</h2>
+                <p class="district-location">Perris, CA | ~18,500 students</p>
+                <p class="district-summary">Val Verde built the most rigorous AI governance framework in its district history: 36 educators generating 223 approval criteria through an AI Task Force — with 71% of criteria explicitly protecting student data privacy.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>Every AI tool is evaluated through five stakeholder lenses including explicit Student and Parent perspectives.</li>
+                    <li>Equity audits built into the approval process — not added later — as a non-negotiable threshold.</li>
+                    <li>Post-Task Force, AI conversations shifted from 'Is this allowed?' to 'What learning experiences does this enable?'</li>
+                    <li>Spring 2026: Language-Based Programming Hackathon with Google AI Studio — students tackle civic challenges.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- Washington Leadership Academy -->
+        <article class="tab-panel" id="wla">
+            <div class="district-header">
+                <div class="district-label">Award Recipient</div>
+                <h2 class="district-title">Washington Leadership Academy</h2>
+                <p class="district-location">Washington, DC | ~400 students</p>
+                <p class="district-summary">DC's first high school to offer four years of CS, WLA has since 2023 positioned students — predominantly Black and Latinx youth, 28% differently abled — as co-designers of the AI systems that shape their learning.</p>
+            </div>
+
+            <div class="highlights-section">
+                <h3 class="highlights-title">Key Highlights</h3>
+                <ul class="highlights-list">
+                    <li>Annual student-led AI hack-a-thons where students build and test real AI-powered solutions.</li>
+                    <li>Student survey cycles and policy committees directly drive tool selection and instructional practice.</li>
+                    <li>73% student survey response rate: 70%+ understand AI's benefits and harms; 63.8% can write effective prompts.</li>
+                    <li>SPED and multilingual learners serve as key co-designers — accessibility shapes every AI decision.</li>
+                </ul>
+            </div>
+
+            <div class="download-section">
+                <a href="WLA Strategies for AI Summit (1).pdf" class="download-btn" download>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Full Overview
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-logo">AI Student <span>Agency</span> Awards</div>
+        <p>Celebrating excellence in human-centered AI education</p>
+    </footer>
+
+    <script>
+        const select = document.getElementById('district-select');
+        const panels = document.querySelectorAll('.tab-panel');
+
+        select.addEventListener('change', () => {
+            const targetId = select.value;
+
+            panels.forEach(panel => {
+                panel.classList.remove('active');
+                if (panel.id === targetId) {
+                    panel.classList.add('active');
+                }
+            });
+
+            document.querySelector('.main-content').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    </script>
+</body>
+</html>
