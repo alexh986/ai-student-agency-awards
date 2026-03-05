@@ -397,9 +397,140 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        /* Present Button */
+        .present-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+
+        .present-btn:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .present-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Presentation Mode */
+        body.presenting {
+            background: var(--navy);
+        }
+
+        body.presenting .header,
+        body.presenting .nav-container,
+        body.presenting .footer,
+        body.presenting .district-label,
+        body.presenting .district-location,
+        body.presenting .district-summary,
+        body.presenting .download-section,
+        body.presenting .present-btn,
+        body.presenting .highlights-title::before {
+            display: none !important;
+        }
+
+        body.presenting .main-content {
+            max-width: 1100px;
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        body.presenting .tab-panel {
+            animation: none;
+        }
+
+        body.presenting .district-header {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 3rem;
+        }
+
+        body.presenting .district-title {
+            color: var(--warm-white);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 0;
+        }
+
+        body.presenting .highlights-section {
+            margin-top: 0;
+        }
+
+        body.presenting .highlights-title {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        body.presenting .highlights-list li {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.35rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            padding-left: 2.25rem;
+        }
+
+        body.presenting .highlights-list li::before {
+            width: 12px;
+            height: 12px;
+            top: 0.5em;
+        }
+
+        /* Exit Presentation Button */
+        .exit-present-btn {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            display: none;
+        }
+
+        .exit-present-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        body.presenting .exit-present-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
     </style>
 </head>
 <body>
+    <button class="exit-present-btn" id="exitPresent">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+        Exit Presentation
+    </button>
     <header class="header">
         <div class="header-content">
     <h1>2026 AI Student <span>Agency</span> Awards</h1>
@@ -434,6 +565,14 @@
                 <h2 class="district-title">Anaheim Union High School District</h2>
                 <p class="district-location">Anaheim, CA | ~26,000 students</p>
                 <p class="district-summary">AUHSD's guiding principle: technology is built with the community, not for them. The Student AI Framework, approved December 2025 and co-authored by student interns, centers 'Youth Voice & Purpose' across grades 7–12.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -454,6 +593,14 @@
                 <h2 class="district-title">Cajon Valley Union School District</h2>
                 <p class="district-location">El Cajon, CA | ~17,000 students</p>
                 <p class="district-summary">Cajon Valley moves 'at the speed of trust' — a deliberate, stakeholder-led rollout that sought systematic input from unions, families, and students before advancing, earning consistent community praise for prioritizing people over speed.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -485,6 +632,14 @@
                 <h2 class="district-title">Capistrano Unified School District</h2>
                 <p class="district-location">San Juan Capistrano, CA | ~40,000 students</p>
                 <p class="district-summary">Capistrano's AI Institute (launched 2024–25) serves 40,000 TK–12 students through a '10% Club' of early-adopting teachers who design replicable AI-integrated lessons — students use AI as a thinking partner, not a shortcut.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -516,6 +671,14 @@
                 <h2 class="district-title">DREAM Charter Schools</h2>
                 <p class="district-location">New York, NY | ~2,500 students</p>
                 <p class="district-summary">DREAM designed its own K–12 AI Literacy Standards — aligned to the school's equity mission — and embeds AI instruction in core subjects including ELA, World History, and Social Studies, rather than treating it as a standalone course.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -547,6 +710,14 @@
                 <h2 class="district-title">El Segundo Unified School District</h2>
                 <p class="district-location">El Segundo, CA | ~3,500 students</p>
                 <p class="district-summary">ESUSD's core belief: AI is designed with students, not for them. The district built a community-centered ecosystem including an (AI)dvisory Team of students, parents, and staff, district-wide adoption of MagicSchool AI and Canva AI, and a formal Emerging Technologies policy co-shaped by families.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -578,6 +749,14 @@
                 <h2 class="district-title">Irvine Unified School District</h2>
                 <p class="district-location">Irvine, CA | ~40,000 students</p>
                 <p class="district-summary">IUSD launched AI Literacy modules for all grades 4–12 at the start of 2025–26, paired with equitable access to vetted tools: Gemini for high school, MagicSchool and Snorkl for younger grades — all privacy-compliant.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -609,6 +788,14 @@
                 <h2 class="district-title">La Habra City School District</h2>
                 <p class="district-location">La Habra, CA | ~4,200 students</p>
                 <p class="district-summary">La Habra integrates AI literacy across TK–8 through hands-on experiences that position students as active trainers and evaluators of technology — embedded within a newly developed TK–8 Digital Literacy Progression.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -640,6 +827,14 @@
                 <h2 class="district-title">Lynwood Unified School District</h2>
                 <p class="district-location">Lynwood, CA | ~11,500 students</p>
                 <p class="district-summary">Lynwood's AI Collaborative (launched 2024–25) positions students as civic problem-solvers who choose real-world challenges and use AI as a thought partner to research, prototype, and reflect — with student choice at the center.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -671,6 +866,14 @@
                 <h2 class="district-title">Oak Grove School District 68</h2>
                 <p class="district-location">Green Oaks, IL | ~900 students</p>
                 <p class="district-summary">Oak Grove believes knowledge is power. Starting in May 2025, the district built an AI Guidebook with teachers and launched the Oak Grove AI Use Levels — a grades 3–8 framework that gives students and teachers shared vocabulary for responsible AI use.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -691,6 +894,14 @@
                 <h2 class="district-title">Sequoia Union High School District (dTech)</h2>
                 <p class="district-location">Redwood City, CA | ~550–600 students</p>
                 <p class="district-summary">dTech treats AI as a shared learning journey using an Explore → Create → Learn framework. By centering student agency first, the school produced real-world innovation before ever writing a formal policy.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -711,6 +922,14 @@
                 <h2 class="district-title">Val Verde Unified School District</h2>
                 <p class="district-location">Perris, CA | ~18,500 students</p>
                 <p class="district-summary">Val Verde built the most rigorous AI governance framework in its district history: 36 educators generating 223 approval criteria through an AI Task Force — with 71% of criteria explicitly protecting student data privacy.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -731,6 +950,14 @@
                 <h2 class="district-title">Washington Leadership Academy</h2>
                 <p class="district-location">Washington, DC | ~400 students</p>
                 <p class="district-summary">DC's first high school to offer four years of CS, WLA has since 2023 positioned students — predominantly Black and Latinx youth, 28% differently abled — as co-designers of the AI systems that shape their learning.</p>
+                <button class="present-btn" onclick="enterPresentation()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Present
+                </button>
             </div>
 
             <div class="highlights-section">
@@ -784,6 +1011,25 @@
                     block: 'start'
                 });
             });
+        });
+
+        // Presentation Mode
+        function enterPresentation() {
+            document.body.classList.add('presenting');
+            window.scrollTo(0, 0);
+        }
+
+        function exitPresentation() {
+            document.body.classList.remove('presenting');
+        }
+
+        document.getElementById('exitPresent').addEventListener('click', exitPresentation);
+
+        // Exit presentation with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.body.classList.contains('presenting')) {
+                exitPresentation();
+            }
         });
     </script>
 </body>
